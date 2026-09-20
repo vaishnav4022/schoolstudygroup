@@ -1,0 +1,76 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  *, *::before, *::after {
+    box-sizing: border-box;
+  }
+
+  html {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-secondary-50 text-secondary-900 font-sans;
+  }
+
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    @apply bg-transparent;
+  }
+  ::-webkit-scrollbar-thumb {
+    @apply bg-secondary-300 rounded-full;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-secondary-400;
+  }
+
+  /* Sidebar scrollbar */
+  .sidebar-scroll::-webkit-scrollbar-thumb {
+    background-color: rgba(255, 255, 255, 0.15);
+  }
+}
+
+@layer components {
+  /* Page layout */
+  .page-content {
+    @apply flex-1 min-h-screen bg-secondary-50 overflow-auto;
+  }
+
+  /* Stat card pattern */
+  .stat-card {
+    @apply bg-white rounded-xl border border-secondary-100 shadow-card p-5 flex items-center gap-4;
+  }
+
+  /* Input base */
+  .input-base {
+    @apply w-full rounded-lg border border-secondary-200 bg-white px-3 py-2.5 text-sm text-secondary-900
+           placeholder-secondary-400 outline-none transition-all duration-150
+           focus:border-primary-500 focus:ring-2 focus:ring-primary-100;
+  }
+}
+
+@layer utilities {
+  .transition-fast {
+    transition: all 0.15s ease;
+  }
+
+  /* Sidebar active item glow */
+  .sidebar-active-glow {
+    box-shadow: inset 3px 0 0 #2563eb;
+  }
+
+  /* Text gradient */
+  .text-gradient {
+    @apply bg-gradient-to-r from-primary-600 to-primary-400 bg-clip-text text-transparent;
+  }
+}
